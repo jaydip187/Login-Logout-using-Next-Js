@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -24,4 +24,22 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+} */
+
+@font-face {
+  font-family: kusanagi;
+  src: url(../../public/fonts/Kusanagi.otf);
+}
+
+@font-face {
+  font-family: automata;
+  src: url(../../public/fonts/AUTOMATA-DISPLAY.ttf);
+}
+@font-face {
+  font-family: dunerise;
+  src: url(../../public/fonts/Dune_Rise.otf);
+}
+
+.font-fm {
+  font-family: Kusanagi;
 }
