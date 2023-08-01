@@ -3,6 +3,7 @@ import users from "@/model/Users/Users";
 import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { cookies } from "next/headers";
 
 export async function POST(req) {
   await dbConnect();
@@ -32,9 +33,17 @@ export async function POST(req) {
     success: true,
   });
   const token = jwt.sign({ _id: emailchaeck._id }, process.env.JWT_TOKEN);
-
-  res.cookies.set("token", token, {
+  console.log(new Date(Date.now() + 1000 * 60 * 60 * 12).toUTCString());
+  // res.cookies.set("token", token, {
+  //   httpOnly: true,
+  //   expires: new Date(Date.now() + 1000 * 60 * 60 * 12).toUTCString(),
+  // });
+  cookies().set({
+    name: "token",
+    value: token,
+    expires: new Date(Date.now() + 1000 * 60 * 60 * 12),
     httpOnly: true,
+    secure: true,
   });
 
   return res;
