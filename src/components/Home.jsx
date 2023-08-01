@@ -57,13 +57,13 @@ const Home = () => {
         >
           {data ? (
             <div>
-              <h1>" Hello , {data?.name} "</h1>
+              <h1>&quot;Hello , {data?.name} &quot;</h1>
             </div>
           ) : (
             <div>
-              <h1>" Hey , it`s Jaydip"</h1>
+              <h1>&quot; Hey , it`s Jaydip&quot;</h1>
               <br />
-              "I Am Web Devloper..."
+              &quot;I Am Web Devloper...&quot;
             </div>
           )}
         </h1>
