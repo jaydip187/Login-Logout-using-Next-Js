@@ -80,7 +80,7 @@ const Singin = () => {
         <div>
           <div className="p-10 flex flex-row regfull   ">
             <div className="regfull  " style={{ height: "383px" }}>
-              <h2 className="font-am">Sign Up</h2>
+              <h2 className="font-am">Login</h2>
               {/* -------------------------------form */}
 
               <div className="py-2">
