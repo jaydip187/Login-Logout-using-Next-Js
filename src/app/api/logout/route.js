@@ -3,8 +3,12 @@ import { NextResponse } from "next/server";
 export async function GET() {
   const res = NextResponse.json({ message: "logout", suceess: true });
 
-  res.cookies.set("token", "", {
+  cookies().set({
+    name: "token",
+    value: "",
     expires: new Date(Date.now()),
+    httpOnly: true,
+    secure: true,
   });
 
   return res;
