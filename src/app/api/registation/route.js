@@ -2,6 +2,7 @@ import dbConnect from "@/db/dbConfig";
 import users from "@/model/Users/Users";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
 // export function GET() {
@@ -46,8 +47,15 @@ export async function POST(req) {
     success: true,
   });
 
-  res.cookies.set("token", token, {
+  // res.cookies.set("token", token, {
+  //   httpOnly: true,
+  // });
+  cookies().set({
+    name: "token",
+    value: token,
+    expires: new Date(Date.now() + 1000 * 60 * 60 * 12),
     httpOnly: true,
+    secure: true,
   });
 
   return res;
